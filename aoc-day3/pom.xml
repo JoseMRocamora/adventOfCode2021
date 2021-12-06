@@ -10,8 +10,8 @@
 		<maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version>
 		<maven-dependency-plugin.version>3.2.0</maven-dependency-plugin.version>
 		<maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
-		<maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>		
-		<apache-commons-lang3.version>3.0</apache-commons-lang3.version>		
+		<maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
+		<apache-commons-lang3.version>3.0</apache-commons-lang3.version>
 		<project.mainclass>com.kblman.aoc.day3.Main</project.mainclass>
 	</properties>
 
@@ -92,6 +92,13 @@
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>${apache-commons-lang3.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 

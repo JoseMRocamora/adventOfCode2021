@@ -1,15 +1,6 @@
 package com.kblman.aoc.day3;
 
-import org.apache.commons.lang3.StringUtils;
-
 public class Main {
-	private static final int ALL_ONES = 0b111111111111;
-	private static final int BIT_PRECISION = 12;
-	private static final int ALL_ZEROS = 0b000000000000;
-
-//	public static String[] INPUT = { "000000000100", "000000011110", "000000010110", "000000010111", "000000010101",
-//			"000000001111", "000000000111", "000000011100", "000000010000", "000000011001", "000000000010",
-//			"000000001010" };
 
 	public static String[] INPUT = { "000000011010", "011001111011", "100101011101", "000110000110", "101010001010",
 			"010010000011", "011001111001", "100111000000", "011101011010", "000000110001", "101110111100",
@@ -181,59 +172,17 @@ public class Main {
 
 	public static void main(String[] args) {
 
+		Calculate calculate = new Calculate(INPUT);
+
 		System.out.println("--- Day 2, part 1 ---\n");
+		int result1 = calculate.part1();
+		System.out.println(String.format("Result = %d\n", result1));
 
-		part1();
-
-		System.out.println("\n--------------------------------------------------------------------------------\n");
+		System.out.println("--------------------------------------------------------------------------------\n");
 
 		System.out.println("--- Day 2, part 2 ---\n");
-
-		part2();
-
-	}
-
-	private static void part1() {
-
-		int[][] matrixGamma = { { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } };
-
-		for (int i = 0; i < INPUT.length; i++) {
-			String diagnosisBits = INPUT[i];
-			for (int j = 0; j < BIT_PRECISION; j++) {
-				String diagnosisBit = diagnosisBits.substring(j, j + 1);
-				int value = Integer.parseInt(diagnosisBit);
-				matrixGamma[value][j]++;
-			}
-		}
-
-		int gamma = ALL_ZEROS;
-		for (int i = 0; i < BIT_PRECISION; i++) {
-			int bitGamma = (int) ((matrixGamma[0][i] >= matrixGamma[1][i]) ? 0 : 1);
-			gamma = (int) (gamma | (bitGamma << (BIT_PRECISION - 1 - i)));
-		}
-		int epsilon = (int) (~gamma & ALL_ONES);
-		int powerComsumption = (int) gamma * epsilon;
-
-		System.out.println(String.format("Gamma = %d, Epsilon = %d", gamma, epsilon));
-		System.out.println(String.format("Gamma = %s, Epsilon = %s", toBinaryString(gamma), toBinaryString(epsilon)));
-		System.out.println(String.format("Power comsumption = %d", powerComsumption));
-	}
-
-	private static String toBinaryString(int number) {
-		String binaryString = StringUtils.repeat("0", BIT_PRECISION) + Integer.toBinaryString(number);
-		return StringUtils.right(binaryString, BIT_PRECISION);
-	}
-
-	private static void part2() {
-		/*
-		 * for (int i = 0; i < INPUT.length; i++) { }
-		 * 
-		 * System.out.println(String.
-		 * format("Submarine: Horizontal Position= %d, Depth= %d",
-		 * submarine2.getHorizontal(), submarine2.getDepth()));
-		 * System.out.println(String.format("Calculated Position= %d",
-		 * submarine2.getHorizontal() * submarine2.getDepth()));
-		 */
+		int result2 = calculate.part2();
+		System.out.println(String.format("Result = %d\n", result2));
 	}
 
 }
