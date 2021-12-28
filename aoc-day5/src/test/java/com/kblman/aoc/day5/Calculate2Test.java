@@ -19,8 +19,7 @@ public class Calculate2Test {
 			{ {0,0} , {8,8} },
 			{ {5,5} , {8,2} }
 			};
-	
-	
+		
 	private Calculate calculate2;
 
 	@Before
@@ -32,7 +31,7 @@ public class Calculate2Test {
 	public void testPart2() {
 		int result = calculate2.calculate();
 
-		assertEquals(1924, result);
+		assertEquals(12, result);
 	}
 
 }
